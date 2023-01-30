@@ -8,11 +8,13 @@ public class OrderGenerator : MonoBehaviour
 
     private void Awake()
     {
-        Weapon weapon = _catalog.GetRandomWeapon();
+        WeaponType weaponType = _catalog.GetRandomWeaponType();
+
+        Weapon weapon = _catalog.GetRandomWeapon(weaponType);
         weapon = Instantiate(weapon, _preview.position, Quaternion.identity);
         weapon.transform.SetParent(_preview);
 
-        List<AttachmentType> attachmentTypes = _catalog.GetRandomAttachmentTypes();
+        List<AttachmentType> attachmentTypes = _catalog.GetRandomAttachmentTypes(weapon);
         List<Attachment> attachments = new List<Attachment>();
 
         for (int i = 0; i < attachmentTypes.Count; i++)
@@ -23,9 +25,9 @@ public class OrderGenerator : MonoBehaviour
         weapon.InstantiateAttachments(attachments, weapon.transform);
     }
 
-    public Order Generate()
-    {
-        Order order = new Order(_catalog.GetRandomWeaponType(), _catalog.GetRandomAttachmentTypes(), _catalog.GetRandomWeapon().gameObject);
-        return order;
-    }
+    //public Order Generate()
+    //{
+    //    Order order = new Order(_catalog.GetRandomWeaponType(), _catalog.GetRandomAttachmentTypes(), _catalog.GetRandomWeapon().gameObject);
+    //    return order;
+    //}
 }

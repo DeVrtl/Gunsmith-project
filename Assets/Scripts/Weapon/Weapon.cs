@@ -3,11 +3,13 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+    [SerializeField] private Sprite _icon;
     [SerializeField] private List<AttachmentPlace> _attachmentPlaces;
     [SerializeField] private WeaponType _type;
 
     public WeaponType Type => _type;
     public List<AttachmentPlace> AttachmentPlaces => _attachmentPlaces;
+    public Sprite Icon => _icon; 
 
     public void InstantiateAttachments(List<Attachment> attachments, Transform parent)
     {

@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -34,24 +33,39 @@ public class Catalog : MonoBehaviour
         return weaponType;
     }
 
-    public Weapon GetRandomWeapon()
+    public Weapon GetRandomWeapon(WeaponType weaponType)
     {
-        CatalogSection catalogSection = _section.Find(s => GetRandomWeaponType() == s.WeaponTemplates[UnityEngine.Random.Range(0, s.WeaponTemplates.Count)].Type);
+        CatalogSection catalogSection = null;
+
+        for (int sectionNumber = 0; sectionNumber < _section.Count; sectionNumber++)
+        {
+            if (_section[sectionNumber].WeaponType == weaponType)
+            {
+                for (int weaponNumber = 0; weaponNumber < _section[sectionNumber].WeaponTemplates.Count; weaponNumber++) 
+                {
+                    if (_section[sectionNumber].WeaponTemplates[weaponNumber].Type == weaponType) 
+                    {
+                        catalogSection = _section[sectionNumber];
+                    }
+                }
+            }
+        }
+
         Weapon weapon = catalogSection.WeaponTemplates[UnityEngine.Random.Range(0, catalogSection.WeaponTemplates.Count)];
 
         return weapon;
     }
 
-    public List<AttachmentType> GetRandomAttachmentTypes()
+    public List<AttachmentType> GetRandomAttachmentTypes(Weapon weapon) 
     {
-        int attachmentsCount = UnityEngine.Random.Range(0, GetRandomWeapon().AttachmentPlaces.Count);
+        int attachmentsCount = UnityEngine.Random.Range(0, weapon.AttachmentPlaces.Count);
 
         List<AttachmentType> attachmentTypes = new List<AttachmentType>();
-        List<AttachmentPlace> attachmentPlace = GetRandomWeapon().AttachmentPlaces;
+        List<AttachmentPlace> attachmentPlace = weapon.AttachmentPlaces;
 
         for (int i = attachmentsCount; i < attachmentPlace.Count; i++)
         {
-            attachmentTypes.Add(attachmentPlace[i].Type); 
+            attachmentTypes.Add(attachmentPlace[i].Type);
         }
 
         return attachmentTypes;

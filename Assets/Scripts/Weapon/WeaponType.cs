@@ -1,4 +1,4 @@
 public enum WeaponType 
 {
-    pistol, rifle
+    SubmachineGun, AssaultRifle, AntiMaterialRifle, MachineGun, Shotgun
 }
