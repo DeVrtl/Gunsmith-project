@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.UI;
 
 public class WeaponView : View
 {
@@ -31,6 +30,6 @@ public class WeaponView : View
     {
         Weapon weapon = Instantiate(_weapon, _weaponSapwnPoint.position, Quaternion.identity);
         weapon.transform.Rotate(new Vector3(0, 90));
-        WeaponSelected?.Invoke(_weapon);
+        WeaponSelected?.Invoke(weapon);
     }
 }

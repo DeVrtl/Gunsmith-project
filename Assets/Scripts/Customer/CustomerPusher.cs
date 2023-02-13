@@ -8,4 +8,9 @@ public class CustomerPusher : MonoBehaviour
     {
         transform.position += transform.forward * _speed * Time.deltaTime;
     }
+
+    public void Enable()
+    {
+        enabled = true;
+    }
 }

@@ -5,10 +5,9 @@ using UnityEngine;
 public class CustomerRotator : MonoBehaviour
 {
     [SerializeField] private float _speed;
-    [SerializeField] private float _target;
 
-    private void Update()
+    public void Rotate(float targetY)
     {
-        transform.rotation = Quaternion.Lerp(transform.rotation, new Quaternion(0, _target, 0, 0), Time.deltaTime * _speed);
+        transform.rotation = Quaternion.Lerp(transform.rotation, new Quaternion(0, targetY, 0, 0), Time.deltaTime * _speed);
     }
 }

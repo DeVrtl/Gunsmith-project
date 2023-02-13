@@ -41,9 +41,9 @@ public class Catalog : MonoBehaviour
         {
             if (_section[sectionNumber].WeaponType == weaponType)
             {
-                for (int weaponNumber = 0; weaponNumber < _section[sectionNumber].WeaponTemplates.Count; weaponNumber++) 
+                for (int weaponNumber = 0; weaponNumber < _section[sectionNumber].WeaponTemplates.Count; weaponNumber++)
                 {
-                    if (_section[sectionNumber].WeaponTemplates[weaponNumber].Type == weaponType) 
+                    if (_section[sectionNumber].WeaponTemplates[weaponNumber].Type == weaponType)
                     {
                         catalogSection = _section[sectionNumber];
                     }
@@ -56,7 +56,7 @@ public class Catalog : MonoBehaviour
         return weapon;
     }
 
-    public List<AttachmentType> GetRandomAttachmentTypes(Weapon weapon) 
+    public List<AttachmentType> GetRandomAttachmentTypes(Weapon weapon)
     {
         int attachmentsCount = UnityEngine.Random.Range(0, weapon.AttachmentPlaces.Count);
 

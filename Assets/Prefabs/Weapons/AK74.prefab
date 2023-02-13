@@ -178,6 +178,7 @@ GameObject:
   - component: {fileID: 473026138130197676}
   - component: {fileID: 483008100856879182}
   - component: {fileID: 2367332463853839118}
+  - component: {fileID: 1787478214666355039}
   m_Layer: 0
   m_Name: AK74
   m_TagString: Untagged
@@ -271,6 +272,20 @@ MonoBehaviour:
   - {fileID: 4829387060255372179}
   - {fileID: 4279082490493193531}
   _type: 1
+  _name: 0
+--- !u!65 &1787478214666355039
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496082726899431664}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.033782385, y: 0.16676848, z: 0.7707256}
+  m_Center: {x: -0.0017576693, y: -0.036212504, z: -0.06259711}
 --- !u!1 &496395667372934516
 GameObject:
   m_ObjectHideFlags: 0
@@ -378,7 +393,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2861970789221722910}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.0604, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -456,7 +471,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7810950310261637151}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.0356, z: -0.1981}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

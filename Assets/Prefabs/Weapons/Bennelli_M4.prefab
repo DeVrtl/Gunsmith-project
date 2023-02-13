@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 4857994682303951849}
   - component: {fileID: 4848004853850995381}
   - component: {fileID: 354826391249042657}
+  - component: {fileID: 6822715929353783803}
   m_Layer: 0
   m_Name: Bennelli_M4
   m_TagString: Untagged
@@ -187,6 +188,20 @@ MonoBehaviour:
   - {fileID: 2053864205577347668}
   - {fileID: 4992406072476884440}
   _type: 4
+  _name: 1
+--- !u!65 &6822715929353783803
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4834361675730860927}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.03434936, y: 0.19232099, z: 0.97656214}
+  m_Center: {x: 0, y: -0.06046728, z: 0.009858891}
 --- !u!1 &4834552652491186331
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,7 +309,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5348509463635940480}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.0564, z: 0.0334}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -372,8 +387,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7509338913775545877}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.0158, z: -0.1962}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.0102, y: 0.0031, z: -0.1962}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

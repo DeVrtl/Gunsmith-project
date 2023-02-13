@@ -6,28 +6,29 @@ public class OrderGenerator : MonoBehaviour
     [SerializeField] private Catalog _catalog;
     [SerializeField] private Transform _preview;
 
+    private Weapon _weapon;
+    private List<Attachment> _attachments = new List<Attachment>();
+    private List<AttachmentType> _attachmentTypes = new List<AttachmentType>();
+
+    public Weapon Weapon => _weapon;
+    public List<Attachment> Attachments => _attachments;
+
     private void Awake()
     {
         WeaponType weaponType = _catalog.GetRandomWeaponType();
 
-        Weapon weapon = _catalog.GetRandomWeapon(weaponType);
-        weapon = Instantiate(weapon, _preview.position, Quaternion.identity);
-        weapon.transform.SetParent(_preview);
+        _weapon = _catalog.GetRandomWeapon(weaponType);
+        _weapon = Instantiate(_weapon, _preview.position, Quaternion.identity);
+        _weapon.transform.Rotate(new Vector3(0, 90));
+        _weapon.transform.SetParent(_preview);
 
-        List<AttachmentType> attachmentTypes = _catalog.GetRandomAttachmentTypes(weapon);
-        List<Attachment> attachments = new List<Attachment>();
+        _attachmentTypes = _catalog.GetRandomAttachmentTypes(_weapon);
 
-        for (int i = 0; i < attachmentTypes.Count; i++)
+        for (int i = 0; i < _attachmentTypes.Count; i++)
         {
-            attachments.Add(_catalog.GetAttachment(weapon.Type, attachmentTypes[i]));
+            _attachments.Add(_catalog.GetAttachment(_weapon.Type, _attachmentTypes[i]));
         }
 
-        weapon.InstantiateAttachments(attachments, weapon.transform);
+        _weapon.InstantiateAttachments(_attachments, _weapon.transform);
     }
-
-    //public Order Generate()
-    //{
-    //    Order order = new Order(_catalog.GetRandomWeaponType(), _catalog.GetRandomAttachmentTypes(), _catalog.GetRandomWeapon().gameObject);
-    //    return order;
-    //}
 }

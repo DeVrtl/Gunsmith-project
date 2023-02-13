@@ -10,6 +10,7 @@ public class CustomerCollisionHandler : MonoBehaviour
         if (other.TryGetComponent(out ShopTrigger shop))
         {
             Passed?.Invoke();
+            shop.gameObject.SetActive(false);
         }
     }
 }
