@@ -10,17 +10,12 @@ public class OrderGenerator : MonoBehaviour
     private List<Attachment> _attachments = new List<Attachment>();
     private List<AttachmentType> _attachmentTypes = new List<AttachmentType>();
 
-    public Weapon Weapon => _weapon;
-    public List<Attachment> Attachments => _attachments;
-
-    private void Awake()
+    private void OnEnable()
     {
         WeaponType weaponType = _catalog.GetRandomWeaponType();
 
-        _weapon = _catalog.GetRandomWeapon(weaponType);
-        _weapon = Instantiate(_weapon, _preview.position, Quaternion.identity);
-        _weapon.transform.Rotate(new Vector3(0, 90));
-        _weapon.transform.SetParent(_preview);
+        InstantiateWeapon(weaponType);
+        AdoptAndRotateWeapon();
 
         _attachmentTypes = _catalog.GetRandomAttachmentTypes(_weapon);
 
@@ -30,5 +25,30 @@ public class OrderGenerator : MonoBehaviour
         }
 
         _weapon.InstantiateAttachments(_attachments, _weapon.transform);
+    }
+
+
+    private void OnDisable()
+    {
+        Destroy(_weapon.gameObject);
+        _attachments.Clear();
+    }
+    
+    public Order Generate()
+    {
+        Order order = new Order(_weapon, _attachments);
+        return order;
+    }
+
+    private void InstantiateWeapon(WeaponType weaponType)
+    {
+        _weapon = _catalog.GetRandomWeapon(weaponType);
+        _weapon = Instantiate(_weapon, _preview.position, Quaternion.identity);
+    }
+
+    private void AdoptAndRotateWeapon()
+    {
+        _weapon.transform.Rotate(new Vector3(0, 90));
+        _weapon.transform.SetParent(_preview);
     }
 }

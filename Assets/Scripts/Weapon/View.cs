@@ -9,5 +9,5 @@ public abstract class View : MonoBehaviour
     public Image Icon => _icon;
     public Button Select => _select;
 
-    public abstract void OnButtonClick();
+    public abstract void OnWeaponTemplateSelectButtonClicked();
 }

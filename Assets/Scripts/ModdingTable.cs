@@ -31,6 +31,12 @@ public class ModdingTable : MonoBehaviour
     private void OnDisable()
     {
         _weaponView.WeaponSelected -= OnWeaponSelected;
+
+        if (_attachmentView == null)
+        {
+            return;
+        }
+
         _attachmentView.AttachmentSelected -= OnAttachmentSelected;
     }
 

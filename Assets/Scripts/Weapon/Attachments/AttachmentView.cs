@@ -19,12 +19,12 @@ public class AttachmentView : View
 
     private void OnEnable()
     {
-        Select.onClick.AddListener(OnButtonClick);
+        Select.onClick.AddListener(OnWeaponTemplateSelectButtonClicked);
     }
 
     private void OnDisable()
     {
-        Select.onClick.RemoveListener(OnButtonClick);
+        Select.onClick.RemoveListener(OnWeaponTemplateSelectButtonClicked);
     }
 
     public void SetModding(AttachmentModding modding)
@@ -32,7 +32,7 @@ public class AttachmentView : View
         _modding = modding;
     } 
 
-    public override void OnButtonClick()
+    public override void OnWeaponTemplateSelectButtonClicked()
     {
         AttachmentSelected?.Invoke(this);
 
